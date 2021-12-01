@@ -11,6 +11,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="../assets/css/vendor.min.css" rel="stylesheet" />
 	<link href="../assets/css/default/app.min.css" rel="stylesheet" />
+	<link href="../assets/css/estiloformularios.css" rel="stylesheet" type="text/css">
+
 	<!-- ================== END core-css ================== -->
 	
 </head>
@@ -153,7 +155,7 @@
 							<p>Docentes</p>	
 						</div>
 						<div class="stats-link">
-							<a href="javascript:;">ir a registro <i class="fa fa-arrow-alt-circle-right"></i></a>
+							<a href="javascript:;" onclick="mostrarDocentes();">ir a registro <i class="fa fa-arrow-alt-circle-right"></i></a>
 						</div>
 					</div>
 				</div>
@@ -166,7 +168,7 @@
 							<p>Estudiantes</p>	
 						</div>
 						<div class="stats-link">
-							<a href="javascript:;">ir a registro <i class="fa fa-arrow-alt-circle-right"></i></a>
+							<a href="javascript:;" onclick="mostrarEstudiantes();">ir a registro <i class="fa fa-arrow-alt-circle-right"></i></a>
 						</div>
 					</div>
 				</div>
@@ -179,16 +181,16 @@
 							<p>Acudientes</p>	
 						</div>
 						<div class="stats-link">
-							<a href="javascript:;">ir a registro <i class="fa fa-arrow-alt-circle-right"></i></a>
+							<a href="javascript:;" onclick="mostrarAcudientes();">ir a registro <i class="fa fa-arrow-alt-circle-right"></i></a>
 						</div>
 					</div>
 				</div>
 				<!-- END col-3 -->
 
-			<!-- BEGIN panel -->
-			<div class="panel panel-inverse">
+			<!-- BEGIN panel docentes-->
+			<div class="panel panel-inverse" id="docentes">
 				<div class="panel-heading">
-					<h4 class="panel-title">Formulario de registro</h4>
+					<h4 class="panel-title">Formulario de registro para docentes</h4>
 					<div class="panel-heading-btn">
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-default" data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-success" data-toggle="panel-reload"><i class="fa fa-redo"></i></a>
@@ -196,16 +198,80 @@
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
 				</div>
+
+				
 				<div class="panel-body">
-					contiene formulario de registro
+					<!--inicio formulario registro docente-->
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="card shadow-lg p-3 mb-5 bg-white">
+									<div class="card-header center text-center border-light">REGISTRO DOCENTE</div>
+										<div class="card-body">
+											<form class="needs-validation" onsubmit="verificarPasswords(); return false" novalidate>
+												<div class="form-row">
+
+													<div class="col-md-4 mb-3">
+													<label for="ingresoNombres">Nombres: </label>
+													<input type="text" class="form-control is-valid" id="ingresoNombres" placeholder="Ingrese Nombres" required>
+													<div class="invalid-feedback">Ingresa nombres</div>
+													</div>
+
+													<div class="col-md-4 mb-3">
+													<label for="ingresoApellidos">Apellidos: </label>
+													<input type="text" class="form-control is-valid" id="ingresoApellidos" placeholder="Ingrese apellidos"  required>
+													<div class="invalid-feedback">Ingresa apellidos</div>
+													</div>
+
+													<div class="col-md-4 mb-3">
+														<label for="ingresoTelefono">Numero de telefono: </label>
+														<input type="tel" class="form-control is-valid" name="ingresoTelefono" id="ingresoTelefono" placeholder="Ingrese numero de contacto" required>
+														<div class="invalid-feedback">Ingresa Numero de contacto</div>
+													</div>
+					
+													<div class="col-md-4 mb-3">
+														<label for="ingresoUsuario">Usuario</label>
+														<input type="text" class="form-control is-valid" id="ingresoUsuario" placeholder="Ingrese nombre de usuario" required>
+														<div class="invalid-feedback">Ingresa nombre de usuario</div>
+													</div>
+
+													<div class="col-md-4 mb-3">
+														<label for="ingresoPassword">Contraseña: </label>
+														<input type="password"  class="form-control is-valid" id="ingresoPassword" name="ingresoPassword" placeholder="Ingrese contraseña" required>
+														<div class="invalid-feedback">Ingresa contraseña</div>
+													</div>
+
+													<div class="col-md-4 mb-3">
+														<label for="verificarPassword">Verificar contraseña: </label>
+														<input type="password" class="form-control is-valid" id="verificarPassword" name="verificarPassword" placeholder="Verifica contraseña" required>
+														<div class="invalid-feedback">Ingresa nuevamente la contraseña</div>
+													</div><br>
+
+													<div class="col-md-6 mb-2 mb-md-0">	
+														<button type="submit" class="btn btn-primary" id="crear" >Crear</button>
+														<button type="submit" onclick="ocultarDocentes();"  class="btn btn-primary" id="crear" >Salir</button>
+													</div>
+												</div>	
+											</form><br>
+
+											<div id="msg"></div>
+											<div id="error" class="alert alert-danger ocultar" role="alert">Las Contraseñas no coinciden, vuelve a intentar !</div>
+											<div id="ok" class="alert alert-success ocultar" role="alert">(Procesando formulario ... )</div>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-			<!-- END panel -->
+			<!--fin formulario docentes-->
 
-			<!-- BEGIN panel -->
-			<div class="panel panel-inverse" data-sortable-id="index-10">
+			<!-- BEGIN panel estudiantes-->
+			<div class="panel panel-inverse" id="estudiantes">
 				<div class="panel-heading">
-					<h4 class="panel-title">Calendar</h4>
+					<h4 class="panel-title">Formulario de registro de estudiantes</h4>
 					<div class="panel-heading-btn">
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-default" data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-success" data-toggle="panel-reload"><i class="fa fa-redo"></i></a>
@@ -213,15 +279,198 @@
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
 				</div>
+
 				<div class="panel-body">
-					<div id="datepicker-inline" class="datepicker-full-width overflow-y-scroll position-relative"><div></div></div>
+					<!--Inicio formulario estudiantes -->
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="card shadow-lg p-3 mb-5 bg-white">
+									<div class="card-header center text-center border-light">REGISTRO ESTUDIANTE</div>
+										<div class="card-body">
+											<form class="needs-validation" onsubmit="verificarPasswords(); return false" novalidate>
+												<div class="form-row">
+													<div class="col-md-4 mb-3">
+														<label for="tipoDocumento">Selecciona tipo de documento: </label>
+														<select id="tipoDocumento" class="form-control is-valid">
+															<option>Tarjeta de identidad</option>
+															<option>Cedula de ciudadania</option>
+															<option>Cedula de extranjeria</option>
+															<option>Pasaporte</option>
+														</select>
+														<div class="invalid-feedback">Selecciona tipo de documento</div>
+													</div>
+
+													<div class="col-md-4 mb-3">
+														<label for="ingresoNumeroDocumento">Numero de documento: </label>
+														<input type="number" class="form-control is-valid" name="ingresoNumeroDocumento" id="ingresoNumeroDocumento" placeholder="Ingrese numero de documento" required>
+														<div class="invalid-feedback">Ingresa Numero de documento</div>
+													</div>
+
+													<div class="col-md-4 mb-3">
+														<label for="ingresoNombres">Nombres: </label>
+														<input type="text" class="form-control is-valid" id="ingresoNombres" placeholder="Ingrese Nombres" required>
+														<div class="invalid-feedback">Ingresa nombres</div>
+													</div>
+
+													<div class="col-md-4 mb-3">
+														<label for="ingresoApellidos">Apellidos: </label>
+														<input type="text" class="form-control is-valid" id="ingresoApellidos" placeholder="Ingrese apellidos"  required>
+														<div class="invalid-feedback">Ingresa apellidos</div>
+													</div>
+
+													<div class="col-md-4 mb-3">
+														<label for="ingresoTelefono">Numero de telefono: </label>
+														<input type="tel" class="form-control is-valid" name="ingresoTelefono" id="ingresoTelefono" placeholder="Ingrese numero de contacto" required>
+														<div class="invalid-feedback">Ingresa Numero de contacto</div>
+													</div>
+													<!--poner aqui conexion con base de datos para los acudiente o dejar en blanco-->
+													<div class="col-md-4 mb-3">
+														<label for="acudiente">Selecciona acudiente: </label>
+														<select id="acudiente" class="form-control is-valid">
+															<option>Juan Vargas</option>
+															<option>Ana Fernendez</option>
+														</select>
+														<div class="invalid-feedback">Selecciona acudiente</div>
+													</div>
+
+													<div class="col-md-4 mb-3">
+														<label for="grado">Selecciona grado: </label>
+														<select id="grado" class="form-control is-valid">
+															<option>6-1</option>
+															<option>6-2</option>
+															<option>7-1</option>
+															<option>7-2</option>
+															<option>8-1</option>
+															<option>8-2</option>
+															<option>9-1</option>
+															<option>9-2</option>
+															<option>10-1</option>
+															<option>11-1</option>
+														</select>
+														<div class="invalid-feedback">Selecciona grado</div>
+													</div>
+							
+													<div class="col-md-4 mb-3">
+														<label for="ingresoUsuario">Usuario</label>
+														<input type="text" class="form-control is-valid" id="ingresoUsuario" placeholder="Ingrese nombre de usuario" required>
+														<div class="invalid-feedback">Ingresa nombre de usuario</div>
+													</div>
+															
+													<div class="col-md-4 mb-3">
+														<label for="ingresoPassword">Contraseña: </label>
+														<input type="password"  class="form-control is-valid" id="ingresoPassword" name="ingresoPassword" placeholder="Ingrese contraseña" required>
+														<div class="invalid-feedback">Ingresa contraseña</div>
+													</div>
+
+													<div class="col-md-4 mb-3">
+														<label for="verificarPassword">Verificar contraseña: </label>
+														<input type="password" class="form-control is-valid" id="verificarPassword" name="verificarPassword" placeholder="Verifica contraseña" required>
+														<div class="invalid-feedback">Ingresa nuevamente la contraseña</div>
+													</div>
+													<br>
+
+													<div class="col-md-6 mb-2 mb-md-0">	
+														<button type="submit" class="btn btn-primary" id="crear" >Crear</button>
+														<button type="submit" onclick="ocultarEstudiantes();"  class="btn btn-primary" id="crear" >Salir</button>
+													</div>
+												</div>	
+								
+											</form>
+											<br>
+											<div id="msg"></div>
+											<div id="error" class="alert alert-danger ocultar" role="alert">Las Contraseñas no coinciden, vuelve a intentar !</div>
+											<div id="ok" class="alert alert-success ocultar" role="alert">(Procesando formulario ... )</div>
+											<!--fin formulario estudiantes-->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-			<!-- END panel -->
-		</div>
+			<!-- END panel estudiantes-->
 
+			<!-- BEGIN panel acudientes-->
+			<div class="panel panel-inverse" id="acudientes">
+				<div class="panel-heading">
+					<h4 class="panel-title">Formulario de registro de acudientes</h4>
+					<div class="panel-heading-btn">
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-default" data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-success" data-toggle="panel-reload"><i class="fa fa-redo"></i></a>
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+				<!-- inicio formulario acudientes-->
+				<div class="panel-body">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="card shadow-lg p-3 mb-5 bg-white">
+									<div class="card-header center text-center border-light">REGISTRO ACUDIENTE</div>
+										<div class="card-body">
+											<form class="needs-validation" onsubmit="verificarPasswords(); return false" novalidate>
+												<div class="form-row">
+													<div class="col-md-4 mb-3">
+														<label for="ingresoNombres">Nombres: </label>
+														<input type="text" class="form-control is-valid" id="ingresoNombres" placeholder="Ingrese Nombres" required>
+														<div class="invalid-feedback">Ingresa nombres</div>
+													</div>
+
+													<div class="col-md-4 mb-3">
+														<label for="ingresoApellidos">Apellidos: </label>
+														<input type="text" class="form-control is-valid" id="ingresoApellidos" placeholder="Ingrese apellidos"  required>
+														<div class="invalid-feedback">Ingresa apellidos</div>
+													</div>
+
+													<div class="col-md-4 mb-3">
+														<label for="ingresoTelefono">Numero de telefono: </label>
+														<input type="tel" class="form-control is-valid" name="ingresoTelefono" id="ingresoTelefono" placeholder="Ingrese numero de contacto" required>
+														<div class="invalid-feedback">Ingresa Numero de contacto</div>
+													</div>
+				
+													<div class="col-md-4 mb-3">
+														<label for="ingresoUsuario">Usuario</label>
+														<input type="text" class="form-control is-valid" id="ingresoUsuario" placeholder="Ingrese nombre de usuario" required>
+														<div class="invalid-feedback">Ingresa nombre de usuario</div>
+													</div>
+												
+													<div class="col-md-4 mb-3">
+														<label for="ingresoPassword">Contraseña: </label>
+														<input type="password"  class="form-control is-valid" id="ingresoPassword" name="ingresoPassword" placeholder="Ingrese contraseña" required>
+														<div class="invalid-feedback">Ingresa contraseña</div>
+													</div>
+
+													<div class="col-md-4 mb-3">
+														<label for="verificarPassword">Verificar contraseña: </label>
+														<input type="password" class="form-control is-valid" id="verificarPassword" name="verificarPassword" placeholder="Verifica contraseña" required>
+														<div class="invalid-feedback">Ingresa nuevamente la contraseña</div>
+													</div>
+													<br>
+													
+													<div class="col-md-6 mb-2 mb-md-0">	
+														<button type="submit" class="btn btn-primary" id="crear" >Crear</button>
+														<button type="submit" onclick="ocultarAcudientes();"  class="btn btn-primary" id="crear" >Salir</button>
+													</div>
+												</div>
+											</form>
+										  	<br>
+										  	<div id="msg"></div>
+										  	<div id="error" class="alert alert-danger ocultar" role="alert">Las Contraseñas no coinciden, vuelve a intentar !</div>
+										  	<div id="ok" class="alert alert-success ocultar" role="alert">(Procesando formulario ... )</div>
+											<!--fin formulario acudientes-->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!-- END panel estudiantes-->
 		
-		<!-- END #content -->
+		</div> <!-- END #content -->
 		
 		<!-- BEGIN scroll to top btn -->
 		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top" data-toggle="scroll-to-top"><i class="fa fa-angle-up"></i></a>
@@ -233,6 +482,7 @@
 	<script src="../assets/js/vendor.min.js"></script>
 	<script src="../assets/js/app.min.js"></script>
 	<script src="../assets/js/theme/default.min.js"></script>
+	<script src="../assets/js/main.js"></script>
 	<!-- ================== END core-js ================== -->
 	
 </body>
