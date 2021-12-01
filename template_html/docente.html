@@ -11,6 +11,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="../assets/css/vendor.min.css" rel="stylesheet" />
 	<link href="../assets/css/default/app.min.css" rel="stylesheet" />
+	<link href="../assets/css/estiloformularios.css" rel="stylesheet" type="text/css">
 	<!-- ================== END core-css ================== -->
 	
 </head>
@@ -27,7 +28,7 @@
 		<div id="header" class="app-header">
 			<!-- BEGIN navbar-header -->
 			<div class="navbar-header">
-				<a href="index.html" class="navbar-brand"><span class="navbar-logo"></span> <b>Control Actividades Escolares </b></a>
+				<a href="login_v3.html" class="navbar-brand"><img src="../assets/img/logo/logoControl.jpg" alt=""></span> <b>Control Actividades Escolares </b></a>
 				<button type="button" class="navbar-mobile-toggler" data-toggle="app-sidebar-mobile">
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
@@ -128,7 +129,7 @@
 		<div id="content" class="app-content">
 			<!-- BEGIN breadcrumb -->
 			<ol class="breadcrumb float-xl-end">
-				<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
+				<li class="breadcrumb-item"><a href="docente.html">Home</a></li>
 				<li class="breadcrumb-item"><a href="javascript:;">Registrar Actividad</a></li>
 				<li class="breadcrumb-item"><a href="javascript:;">Cumplimientos</a></li>
 				
@@ -147,7 +148,7 @@
 							<p>Registrar Actividad</p>	
 						</div>
 						<div class="stats-link">
-							<a href="javascript:;">ir a registro <i class="fa fa-arrow-alt-circle-right"></i></a>
+							<a href="javascript:;" onclick="mostrarActividades();">ir a registro <i class="fa fa-arrow-alt-circle-right"></i></a>
 						</div>
 					</div>
 				</div>
@@ -165,10 +166,9 @@
 					</div>
 				</div>
 				<!-- END col-3 -->
-				
-
-			<!-- BEGIN panel -->
-			<div class="panel panel-inverse">
+			</div>
+			<!-- BEGIN panel formulario registro de acividades -->
+			<div class="panel panel-inverse" id="actividades">
 				<div class="panel-heading">
 					<h4 class="panel-title">Formulario de registro Actividades</h4>
 					<div class="panel-heading-btn">
@@ -179,10 +179,75 @@
 					</div>
 				</div>
 				<div class="panel-body">
-					contiene formulario de registro de actividades
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="card shadow-lg p-3 mb-5 bg-white">
+									<div class="card-header center text-center border-light"><h4>ASIGNAR TAREA</h4></div>
+									<div class="card-body">
+										<form class="needs-validation"  novalidate>
+											<div class="form-row">
+												
+												<div class="col-md-4 mb-3">
+													<label for="grado"><h5>Selecciona grado: </h5></label>
+													<select id="grado" class="form-control">
+														<option>6-1</option>
+														<option>6-2</option>
+														<option>7-1</option>
+														<option>7-2</option>
+														<option>8-1</option>
+														<option>8-2</option>
+														<option>9-1</option>
+														<option>9-2</option>
+														<option>10-1</option>
+														<option>11-1</option>
+													</select>
+													<div class="invalid-feedback">Selecciona grado</div>
+												</div>
+				
+												<div class="col-md-4 mb-3">
+													<label for="asigantura"><h5>Selecciona asignatura: </h5></label>
+													<select id="asignatura" class="form-control">
+														<option>Ingles</option>
+														<option>Matematicas</option>
+														<option>Español</option>
+														<option>Sociales</option>
+														<option>Etica</option>
+														<option>Agropecuaria</option>
+														<option>Tecnologia</option>
+													</select>
+													<div class="invalid-feedback">Selecciona asignatura</div>
+												</div>
+
+												<div class="col-md-4 mb-3">
+													<label for="descripcionTarea"><h5>Descripcion: </h5></label>
+													<textarea class="form-control" id="descripcionTarea" rows="3" required></textarea>
+													<div class="invalid-feedback">Ingresa descripcion de la tarea:</div>
+												</div>
+
+												<div class="col-md-4 mb-3">
+													<label for="fechaLimite"><h5>Fecha limite:</h5></label>
+													<input type="date" class="form-control" id="fechaLimite" required>
+													<div class="invalid-feedback">Ingresa fecha limite</div>
+												</div>
+												<br>
+
+												<div class="col-md-6 mb-2 mb-md-0">	
+													<button type="submit" class="btn btn-outline-success" id="crear" >Asignar</button>
+													<button type="submit" class="btn btn-outline-success" onclick="ocultarActividades();">Salir</button>
+												</div>
+											</div>
+											
+										</form>
+										
+									</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
-			<!-- END panel -->
+			</div><!-- END panel -->
 		</div>
 		<!-- END #content -->
 		
@@ -196,6 +261,7 @@
 	<script src="../assets/js/vendor.min.js"></script>
 	<script src="../assets/js/app.min.js"></script>
 	<script src="../assets/js/theme/default.min.js"></script>
+	<script src="../assets/js/main.js"></script>
 	<!-- ================== END core-js ================== -->
 	
 </body>
