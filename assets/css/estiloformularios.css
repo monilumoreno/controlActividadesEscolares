@@ -1,0 +1,19 @@
+.ocultar {
+    display: none;
+}
+ 
+.mostrar {
+    display: block;
+}
+
+#docentes{
+    display: none;
+}
+
+#estudiantes{
+    display: none; 
+}
+
+#acudientes{
+    display: none; 
+}
